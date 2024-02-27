@@ -6,14 +6,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="styles.css">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <style>
+        body {
+            background: url("./bg-lounge.png");
+            background-size: 100%;
+        }
+    </style>
 </head>
 
-<body>
-
-
-    <nav class="border-gray-200 bg-gray-50">
-        <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
-            <div class="flex gap-4">
+<body class="min-h-screen">
+    <nav class="border-gray-200 bg-transparent">
+        <div class="max-w-screen-xl flex items-center justify-between mx-auto p-4">
+            <div class="flex items-center gap-4">
                 <button data-collapse-toggle="navbar-solid-bg" type="button"
                     class="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200"
                     onclick="toggleDropdown()">
@@ -28,57 +33,70 @@
                     <img src="./airindia-logo-white.svg" class="" alt="Logo" />
                 </a>
             </div>
-            <div class="hidden w-full md:block md:w-auto left-0  duration-700" id="sideMenu" style="transition: .7s;">
-                <div class="flex flex-col justify-between gap-8 items-end">
+            <div class="hidden text-white w-full md:block md:w-auto left-0 duration-700" 
+                style="transition: .7s;">
+                <div class="flex flex-col justify-between items-end">
 
-                    <ul
-                        class="flex flex-row gap-5 font-medium mt-4 rounded-lg bg-gray-50 md:space-x-8 rtl:space-x-reverse  md:mt-0 md:border-0 md:bg-transparent">
+                    <ul class="flex flex-row items-end justify-end font-medium rounded-lg  ">
                         <li>
                             <a href="#"
-                                class="py-2 px-3 md:p-0 flex itemst-start justify-center bg-blue-700 rounded md:bg-transparent md:text-blue-700 "
-                                aria-current="page"><box-icon name='search'></box-icon>Search</a>
+                                class=" py-2 px-3 flex itemst-start justify-center md:bg-transparent md:border-0 md:hover:text-blue-700"><i
+                                    class='bx bx-search'></i>Search</a>
                         </li>
                         <li>
                             <a href="#"
-                                class="block py-2 px-3 md:p-0 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 ">Services</a>
+                                class=" py-2 flex itemst-start justify-center rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 "><i
+                                    class='bx bx-headphone'></i>Support</a>
                         </li>
 
                     </ul>
                     <ul
-                        class="flex flex-col font-medium mt-4 rounded-lg bg-gray-50 md:space-x-8 rtl:space-x-reverse md:flex-row md:mt-0 md:border-0 md:bg-transparent dark:bg-gray-800 md:dark:bg-transparent dark:border-gray-700">
+                        class="flex flex-col font-medium mt-4 rounded-lg bg-gray-50 md:space-x-8 rtl:space-x-reverse md:flex-row md:mt-0 md:border-0 md:bg-transparent">
                         <li>
-                            <a href="#"
-                                class="block py-2 px-3 md:p-0  bg-blue-700 rounded md:bg-transparent md:text-blue-700 "
+                            <a href="#" class="block py-2 px-3 md:p-0  rounded md:bg-transparent "
                                 aria-current="page">Home</a>
                         </li>
                         <li>
                             <a href="#"
-                                class="block py-2 px-3 md:p-0 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 ">Services</a>
+                                class="block py-2 px-3 md:p-0  rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 ">Services</a>
                         </li>
                         <li>
                             <a href="#"
-                                class="block py-2 px-3 md:p-0 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 ">Pricing</a>
+                                class="block py-2 px-3 md:p-0  rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 ">Pricing</a>
                         </li>
                         <li>
                             <a href="#"
-                                class="block py-2 px-3 md:p-0 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 ">Contact</a>
+                                class="block py-2 px-3 md:p-0  rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 ">Contact</a>
                         </li>
                     </ul>
                 </div>
             </div>
         </div>
+
     </nav>
 
+    <div class="h-screen flex items-center justify-center bg-transparent">
+        <div class="w-54 text-white ">
+            <div class="w-80 rounded-2xl bg-slate-900">
+                <div class="flex flex-col gap-2 p-8">
+                  <p class="text-center text-3xl text-gray-300 mb-4">Register</p>
+                  <input class="bg-slate-900 w-full rounded-lg border border-gray-300 px-4 py-3 focus:outline-none focus:ring-2 focus:ring-gray-700 focus:ring-offset-2 focus:ring-offset-gray-800" placeholder="Email">
+                  <input class="bg-slate-900 w-full rounded-lg border border-gray-300 px-4 py-3 focus:outline-none focus:ring-2 focus:ring-gray-700 focus:ring-offset-2 focus:ring-offset-gray-800" placeholder="Password">
+                  <input class="bg-slate-900 w-full rounded-lg border border-gray-300 px-4 py-3 focus:outline-none focus:ring-2 focus:ring-gray-700 focus:ring-offset-2 focus:ring-offset-gray-800" placeholder="Confirm password">
+                  <label class="flex cursor-pointer items-center justify-between p-1 text-slate-400">
+                    Accept terms of use
+                    <div class="relative inline-block">
+                      <input class="peer h-6 w-12 cursor-pointer appearance-none rounded-full border border-gray-300 bg-gary-400 checked:border-green-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gray-900 focus-visible:ring-offset-2" type="checkbox">
+                      <span class="pointer-events-none absolute left-1 top-1 block h-4 w-4 rounded-full bg-slate-600 transition-all duration-200 peer-checked:left-7 peer-checked:bg-green-300"></span>
+                    </div>
+                  </label>
+                  <button class="inline-block cursor-pointer rounded-md bg-gray-700 px-4 py-3.5 text-center text-sm font-semibold uppercase text-white transition duration-200 ease-in-out hover:bg-gray-800 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gray-700 focus-visible:ring-offset-2 active:scale-95">Register</button>
+                </div>
+              </div>
+        </div>
+    </div>
 
 
-    <script src="https://unpkg.com/boxicons@2.1.4/dist/boxicons.js"></script>
-
-    <script>
-        // function toggleDropdown() {
-        //         const dropdownMenu = document.getElementById('sideMenu');
-        //         dropdownMenu.classList.toggle('hidden');
-        //     }
-    </script>
 </body>
 
 </html>
