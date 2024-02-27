@@ -1,0 +1,591 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="styles.css">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          spacing: {
+            17: "71.9px",
+          },
+          backgroundImage: (theme) => ({
+            "footer-image": "url('/footer-pattern.svg')",
+          }),
+        },
+      },
+    };
+  </script>
+  <link href="https://fonts.googleapis.com/css2?family=Anta&display=swap" rel="stylesheet" />
+
+  <style>
+    .main {
+      background: url("./bg-lounge.png");
+      background-size: 100% 100%;
+      background-repeat: no-repeat;
+    }
+    .font-anta {
+      font-family: "Anta", sans-serif;
+    }
+
+
+    button {
+      font-family: "Anta", sans-serif;
+      font-size: 14px;
+      border-radius: 0px;
+      height: 3rem;
+      border: none;
+      width: 15rem;
+      color: white;
+    }
+
+    .input-group {
+      position: relative;
+    }
+
+    .input {
+      border: solid 1.5px #9e9e9e;
+      border-radius: 3px;
+      background: none;
+      padding: 1rem;
+      font-size: 1rem;
+      color: black;
+      transition: border 150ms cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    .user-label {
+      position: absolute;
+      left: 15px;
+      background-color: white;
+      color: gray;
+      pointer-events: none;
+      transform: translateY(1rem);
+      transition: 150ms cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    .input~label,
+    input~label {
+      transform: translateY(-50%) scale(0.8);
+      padding: 0 0.2em;
+    }
+  </style>
+</head>
+
+<body class="min-h-screen">
+  <div class="main">
+    <nav class="border-gray-200 bg-transparent">
+      <div class="max-w-screen-xl flex items-center justify-between mx-auto p-4">
+        <div class="flex items-center gap-4">
+          <button data-collapse-toggle="navbar-solid-bg" type="button"
+            class="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200"
+            onclick="toggleDropdown()">
+            <span class="sr-only">Open main menu</span>
+            <svg class="w-5 h-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 17 14">
+              <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                d="M1 1h15M1 7h15M1 13h15" />
+            </svg>
+          </button>
+          <a href="#" class="flex items-center space-x-3 rtl:space-x-reverse">
+            <img src="./airindia-logo-white.svg" class="" alt="Logo" />
+          </a>
+        </div>
+        <div class="hidden text-white w-full md:block md:w-auto left-0 duration-700" style="transition: .7s;">
+          <div class="flex flex-col justify-between items-end">
+
+            <ul class="flex flex-row items-end justify-end font-medium rounded-lg  ">
+              <li>
+                <a href="#"
+                  class=" py-2 px-3 flex itemst-start justify-center md:bg-transparent md:border-0 md:hover:text-blue-700"><i
+                    class='bx bx-search'></i>Search</a>
+              </li>
+              <li>
+                <a href="#"
+                  class=" py-2 flex itemst-start justify-center rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 "><i
+                    class='bx bx-headphone'></i>Support</a>
+              </li>
+
+            </ul>
+            <ul
+              class="flex flex-col font-medium mt-4 rounded-lg bg-gray-50 md:space-x-8 rtl:space-x-reverse md:flex-row md:mt-0 md:border-0 md:bg-transparent">
+              <li>
+                <a href="#" class="block py-2 px-3 md:p-0  rounded md:bg-transparent " aria-current="page">Home</a>
+              </li>
+              <li>
+                <a href="#"
+                  class="block py-2 px-3 md:p-0  rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 ">Services</a>
+              </li>
+              <li>
+                <a href="#"
+                  class="block py-2 px-3 md:p-0  rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 ">Pricing</a>
+              </li>
+              <li>
+                <a href="#"
+                  class="block py-2 px-3 md:p-0  rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 ">Contact</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+    </nav>
+
+    <div class="flex items-center justify-center bg-transparent min-h-screen">
+      <div class="w-11/12 md:w-8/12 px-6 py-8 rounded-sm bg-white">
+        <h1 class="font-anta text-red-700 text-3xl mb-10">CREATE AN ACCOUNT</h1>
+        <div class="flex justify-center text-center  items-stretch w-full m-auto">
+          <div class="uppercase border-b-4 text-gray-400 font-bold text-xl border-red-400 px-8 w-1/3">1 <span
+              class="hidden md:inline-block">Personal Info
+            </span></div>
+          <div class="uppercase border-b-4 border-red-700 px-8 w-1/3">2 <span class="hidden md:inline-block">Personal
+              Info
+            </span></div>
+          <div class="uppercase  border-b-4 border-gray-400 px-8 w-1/3">3 <span class="hidden md:inline-block">Personal
+              Info
+            </span></div>
+        </div>
+        <div class="mt-10 flex text-gray-500">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+            stroke="currentColor" class="w-6 h-6">
+            <path stroke-linecap="round" stroke-linejoin="round"
+              d="m11.25 11.25.041-.02a.75.75 0 0 1 1.063.852l-.708 2.836a.75.75 0 0 0 1.063.853l.041-.021M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Zm-9-3.75h.008v.008H12V8.25Z" />
+          </svg>
+          <p>
+            If you already have a Flying Returns account, please reach out to our
+            <a class="text-blue-400 underline" href="#">customer service</a> team
+            to initiate the process of resetting your account credentials.
+          </p>
+        </div>
+        <div class="input-group mt-10">
+          <select class="input w-full md:w-2/6">
+            <option value="op1">Mr</option>
+            <option value="op2">Master</option>
+            <option value="op3">Ms</option>
+            <option value="op4">Mrs</option>
+            <option value="op5">Unspecified</option>
+          </select>
+          <label class="user-label">Title<span class="text-red-700">*</span></label>
+        </div>
+        <div class="flex  flex-col md:flex-row">
+          <div class="input-group mt-10 w-full  md:w-6/12">
+            <input required="" type="text" name="text" autocomplete="off" class="input w-full"
+              placeholder="Enter your first / given name" />
+            <label class="user-label">First / Given Name <span class="text-red-700">*</span></label>
+          </div>
+          <div class="input-group mt-10 ml-2 w-full  md:w-6/12">
+            <input required="" type="text" name="text" autocomplete="off" class="input w-full"
+              placeholder="Enter your last / family name" />
+            <label class="user-label">Last / Family Name <span class="text-red-700">*</span></label>
+          </div>
+        </div>
+
+        <div class="flex flex-col md:flex-row">
+          <div class="input-group mt-10 w-full  md:w-6/12">
+            <select class="input w-full" id="extension_nationality" aria-label="Nationality" aria-required="true">
+              <option style="display: none" disabled="disabled" value="" selected="selected">
+                Nationality
+              </option>
+              <option value="IN">Indian</option>
+              <option value="AF">Afghan</option>
+              <option value="AL">Albanian</option>
+              <option value="DZ">Algerian</option>
+              <option value="AS">Samoan</option>
+              <option value="AD">Andorran</option>
+              <option value="AO">Angolan</option>
+              <option value="AI">Anguilla</option>
+              <option value="AQ">Antarctica</option>
+              <option value="AG">Antiguans, Barbudans</option>
+              <option value="AR">Argentine</option>
+              <option value="AM">Armenian</option>
+              <option value="AW">Aruba</option>
+              <option value="AU">Australian</option>
+              <option value="AT">Austrian</option>
+              <option value="AZ">Azerbaijani</option>
+              <option value="BS">Bahamian</option>
+              <option value="BH">Bahraini</option>
+              <option value="BD">Bangladeshi</option>
+              <option value="BB">Barbadian</option>
+              <option value="BY">Belarusian</option>
+              <option value="BE">Belgian</option>
+              <option value="BZ">Belizean</option>
+              <option value="BJ">Beninese</option>
+              <option value="BM">Bermuda</option>
+              <option value="BT">Bhutanese</option>
+              <option value="BO">Bolivian</option>
+              <option value="BQ">Bonaire</option>
+              <option value="BA">Bosnian</option>
+              <option value="BW">Motswana</option>
+              <option value="BR">Brazilian</option>
+              <option value="BN">Bruneian</option>
+              <option value="BG">Bulgarian</option>
+              <option value="BF">Burkinabe</option>
+              <option value="BI">Burundian</option>
+              <option value="KH">Cambodian</option>
+              <option value="CM">Cameroonian</option>
+              <option value="CA">Canadian</option>
+              <option value="CV">Cape Verdian</option>
+              <option value="KY">Cayman Isl.</option>
+              <option value="CF">Central African</option>
+              <option value="TD">Chadian</option>
+              <option value="CL">Chilean</option>
+              <option value="CN">Chinese</option>
+              <option value="CX">Christmas Island</option>
+              <option value="CC">Cocos (Keeling) Island</option>
+              <option value="CO">Colombian</option>
+              <option value="KM">Comoros</option>
+              <option value="CG">Congo</option>
+              <option value="CD">Congolese</option>
+              <option value="CK">Cook Island</option>
+              <option value="CR">Costa Rican</option>
+              <option value="CI">Ivorian</option>
+              <option value="HR">Croat Or Croatian</option>
+              <option value="CU">Cuban</option>
+              <option value="CW">Curacao</option>
+              <option value="CY">Cypriot</option>
+              <option value="CZ">Czech</option>
+              <option value="DK">Danish</option>
+              <option value="DJ">Djibouti</option>
+              <option value="DM">Dominican</option>
+              <option value="DO">Dominican Rep.</option>
+              <option value="TP">East Timorese</option>
+              <option value="EC">Ecuadorean</option>
+              <option value="EG">Egyptian</option>
+              <option value="SV">Salvadoran</option>
+              <option value="GQ">Equatorial Guinean</option>
+              <option value="ER">Eritrean</option>
+              <option value="EE">Estonian</option>
+              <option value="ET">Ethiopian</option>
+              <option value="FK">Falkland Island</option>
+              <option value="FO">Faroe Islands</option>
+              <option value="FJ">Fijian</option>
+              <option value="FI">Finnish</option>
+              <option value="FR">French</option>
+              <option value="GF">French Guiana</option>
+              <option value="PF">French Polynesia</option>
+              <option value="GA">Gabonese</option>
+              <option value="GM">Gambian</option>
+              <option value="GE">Georgian</option>
+              <option value="DE">German</option>
+              <option value="GH">Ghanaian</option>
+              <option value="GI">Gibraltar</option>
+              <option value="GR">Greek</option>
+              <option value="GL">Greenland</option>
+              <option value="GD">Grenadian</option>
+              <option value="GP">Guadeloupe</option>
+              <option value="GU">Guam</option>
+              <option value="GT">Guatemalan</option>
+              <option value="GN">Guinean</option>
+              <option value="GW">Guinea Bissau</option>
+              <option value="GY">Guyanese</option>
+              <option value="HT">Haitian</option>
+              <option value="HN">Honduran</option>
+              <option value="HK">Hong Kong</option>
+              <option value="HU">Hungarian</option>
+              <option value="IS">Icelander</option>
+              <option value="ID">Indonesian</option>
+              <option value="IR">Iranian</option>
+              <option value="IQ">Iraqi</option>
+              <option value="IE">Irish</option>
+              <option value="IL">Israeli</option>
+              <option value="IT">Italian</option>
+              <option value="JM">Jamaican</option>
+              <option value="JP">Japanese</option>
+              <option value="JO">Jordanian</option>
+              <option value="KZ">Kazakhstani</option>
+              <option value="KE">Kenyan</option>
+              <option value="XU">Khabarovsk Krai</option>
+              <option value="KI">I-Kiribati</option>
+              <option value="KP">Korea North</option>
+              <option value="KR">South Korean</option>
+              <option value="KW">Kuwaiti</option>
+              <option value="KG">Kyrgyz</option>
+              <option value="LA">Lao</option>
+              <option value="LV">Latvian</option>
+              <option value="LB">Lebanese</option>
+              <option value="LS">Mosotho</option>
+              <option value="LR">Liberian</option>
+              <option value="LY">Libyan</option>
+              <option value="LI">Liechtensteiner</option>
+              <option value="LT">Lithuanian</option>
+              <option value="LU">Luxembourger</option>
+              <option value="MO">Macau</option>
+              <option value="MK">Macedonian</option>
+              <option value="MG">Malagasy</option>
+              <option value="MW">Malawian</option>
+              <option value="MY">Malaysian</option>
+              <option value="MV">Maldivan</option>
+              <option value="ML">Malian</option>
+              <option value="MT">Maltese</option>
+              <option value="MH">Marshallese</option>
+              <option value="MQ">Mauritanian</option>
+              <option value="MR">Mauritian</option>
+              <option value="MU">Mauritius</option>
+              <option value="YT">Mayotte</option>
+              <option value="MX">Mexican</option>
+              <option value="FM">Micronesia</option>
+              <option value="MD">Moldovan</option>
+              <option value="MC">Monacan</option>
+              <option value="MN">Mongolian</option>
+              <option value="ME">Montenegro</option>
+              <option value="MS">Montserrat</option>
+              <option value="MA">Moroccan</option>
+              <option value="MZ">Mozambican</option>
+              <option value="MM">Myanmarese</option>
+              <option value="NA">Namibian</option>
+              <option value="NR">Nauruan</option>
+              <option value="NP">Nepalese</option>
+              <option value="NL">Dutch</option>
+              <option value="AN">Dutch</option>
+              <option value="NC">New Caledonia</option>
+              <option value="NZ">New Zealander</option>
+              <option value="NI">Nicaraguan</option>
+              <option value="NE">Nigerian</option>
+              <option value="NG">Nigerien</option>
+              <option value="NU">Niue</option>
+              <option value="MP">Northern Mariana Islands</option>
+              <option value="NO">Norwegian</option>
+              <option value="OM">Omani</option>
+              <option value="PK">Pakistan</option>
+              <option value="PW">Palauan</option>
+              <option value="PS">Palestinian</option>
+              <option value="PA">Panamanian</option>
+              <option value="PG">Papua New Guinea</option>
+              <option value="PY">Paraguayan</option>
+              <option value="PE">Peruvian</option>
+              <option value="PH">Filipino</option>
+              <option value="PL">Polish</option>
+              <option value="PT">Portuguese</option>
+              <option value="PR">Puerto Rico</option>
+              <option value="QA">Qatari</option>
+              <option value="ZR">Congolese</option>
+              <option value="RE">Reunion</option>
+              <option value="RO">Romanian</option>
+              <option value="RU">Russian</option>
+              <option value="RW">Rwandan</option>
+              <option value="WS">Samoa</option>
+              <option value="SM">San Marinese</option>
+              <option value="ST">Sao Tomean</option>
+              <option value="SA">Saudi Arabian</option>
+              <option value="SN">Senegalese</option>
+              <option value="RS">Serbian</option>
+              <option value="SC">Seychellois</option>
+              <option value="SL">Sierra Leonean</option>
+              <option value="SG">Singaporean</option>
+              <option value="SX">Sint Maarten</option>
+              <option value="SK">Slovak</option>
+              <option value="SI">Slovene</option>
+              <option value="SB">Solomon Islander</option>
+              <option value="SO">Somali</option>
+              <option value="ZA">South African</option>
+              <option value="SS">South Sudanese</option>
+              <option value="ES">Spanish</option>
+              <option value="LK">Sri Lankan</option>
+              <option value="PM">St Pierre And Miquelon</option>
+              <option value="VC">St Vincent And Grenadines</option>
+              <option value="SH">St. Helena</option>
+              <option value="KN">Saint Kitts And Nevis</option>
+              <option value="LC">St.Lucia</option>
+              <option value="SD">Sudanese</option>
+              <option value="SR">Surinamer</option>
+              <option value="SZ">Swazi</option>
+              <option value="SE">Swedish</option>
+              <option value="CH">Swiss</option>
+              <option value="SY">Syrian</option>
+              <option value="TW">Taiwanese</option>
+              <option value="TJ">Tajik</option>
+              <option value="TZ">Tanzanian</option>
+              <option value="TH">Thai</option>
+              <option value="TL">Timor Leste</option>
+              <option value="TG">Togolese</option>
+              <option value="TK">Tokelau</option>
+              <option value="TO">Tongan</option>
+              <option value="TT">Trinidadian Or Tobagonian</option>
+              <option value="TN">Tunisian</option>
+              <option value="TR">Turkish</option>
+              <option value="TM">Turkmen</option>
+              <option value="TC">Turks And Caicos Islands</option>
+              <option value="TV">Tuvaluan</option>
+              <option value="UG">Ugandan</option>
+              <option value="UA">Ukrainian</option>
+              <option value="AE">Emirian</option>
+              <option value="GB">British</option>
+              <option value="US">United States Of America</option>
+              <option value="UY">Uruguayan</option>
+              <option value="UZ">Uzbek</option>
+              <option value="VU">Vanuatu</option>
+              <option value="VA">Vatican</option>
+              <option value="VE">Venezuelan</option>
+              <option value="VN">Vietnamese</option>
+              <option value="VG">British Virgin Islands</option>
+              <option value="VI">Us Virgin Isl.</option>
+              <option value="WF">Wallis And Futuna Islands</option>
+              <option value="YE">Yemeni</option>
+              <option value="ZM">Zambian</option>
+              <option value="ZW">Zimbabwean</option>
+            </select>
+            <label class="user-label">Nationality <span class="text-red-700">*</span></label>
+          </div>
+          <div class="input-group mt-10 ml-2 w-full  md:w-6/12">
+            <input required="" type="date" name="date" autocomplete="off" class="input w-full"
+              placeholder="MM / DD / YYYY" />
+            <label class="user-label">Date Of Birth <span class="text-red-700">*</span></label>
+          </div>
+        </div>
+        <div class="flex justify-end">
+
+          <button class="bg-red-600 hover:bg-red-800 font-anta text-white mt-8">Continue</button>
+        </div>
+      </div>
+    </div>
+
+  </div>
+  <footer class="bg-footer-image bg-no-repeat bg-center bg-cover w-full">
+    <div class="mx-auto w-full max-w-screen-xl">
+      <div class="grid grid-cols-2 gap-8 px-4 py-6 lg:py-8 md:grid-cols-4">
+        <div>
+          <h2 class="mb-6 text-sm font-semibold text-gray-900 uppercase font-anta">
+            ABOUT US
+          </h2>
+          <ul class="text-black-500 font-sm">
+            <li class="mb-4">
+              <a href="#" class="hover:underline">About Air India</a>
+            </li>
+            <li class="mb-4">
+              <a href="#" class="hover:underline">Corporate Information</a>
+            </li>
+            <li class="mb-4">
+              <a href="#" class="hover:underline">Press</a>
+            </li>
+            <li class="mb-4">
+              <a href="#" class="hover:underline">Careers</a>
+            </li>
+            <li class="mb-4">
+              <a href="#" class="hover:underline">Cargo</a>
+            </li>
+          </ul>
+        </div>
+        <div>
+          <h2 class="mb-6 text-sm font-semibold text-gray-900 uppercase font-anta">
+            BOOK & MANAGE
+          </h2>
+          <ul class="text-black-500 font-sm">
+            <li class="mb-4">
+              <a href="#" class="hover:underline">Search Flights</a>
+            </li>
+            <li class="mb-4">
+              <a href="#" class="hover:underline">Manage Booking</a>
+            </li>
+            <li class="mb-4">
+              <a href="#" class="hover:underline">Flight Schedule</a>
+            </li>
+          </ul>
+        </div>
+        <div>
+          <h2 class="mb-6 text-sm font-semibold text-gray-900 uppercase font-anta">
+            WHERE WE FLY
+          </h2>
+          <ul class="text-black-500 font-sm">
+            <li class="mb-4">
+              <a href="#" class="hover:underline">Route Map</a>
+            </li>
+            <li class="mb-4">
+              <a href="#" class="hover:underline">Nonstop Flights</a>
+            </li>
+            <li class="mb-4">
+              <a href="#" class="hover:underline">Popular Flughts</a>
+            </li>
+            <li class="mb-4">
+              <a href="#" class="hover:underline">Partner Airlines</a>
+            </li>
+          </ul>
+        </div>
+        <div>
+          <h2 class="mb-6 text-sm font-semibold text-gray-900 uppercase font-anta">
+            PREPARE TO TRAVEL
+          </h2>
+          <ul class="text-black-500 font-sm">
+            <li class="mb-4">
+              <a href="#" class="hover:underline">Baggage</a>
+            </li>
+            <li class="mb-4">
+              <a href="#" class="hover:underline">Airport Information</a>
+            </li>
+            <li class="mb-4">
+              <a href="#" class="hover:underline">Travel with Children, Pets</a>
+            </li>
+            <li class="mb-4">
+              <a href="#" class="hover:underline">Visas & Documents</a>
+            </li>
+            <li class="mb-4">
+              <a href="#" class="hover:underline">Health & Medical Assistance</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="px-4 py-6 bg-transparent md:flex md:items-center md:justify-between">
+        <div class="flex mt-4 sm:justify-center md:mt-0 space-x-5 rtl:space-x-reverse">
+          <a href="#" class="text-gray-400 hover:text-gray-900 dark:hover:text-white">
+            <svg class="w-4 h-4" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor"
+              viewBox="0 0 8 19">
+              <path fill-rule="evenodd"
+                d="M6.135 3H8V0H6.135a4.147 4.147 0 0 0-4.142 4.142V6H0v3h2v9.938h3V9h2.021l.592-3H5V3.591A.6.6 0 0 1 5.592 3h.543Z"
+                clip-rule="evenodd" />
+            </svg>
+            <span class="sr-only">Facebook page</span>
+          </a>
+          <a href="#" class="text-gray-400 hover:text-gray-900 dark:hover:text-white">
+            <svg class="w-4 h-4" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor"
+              viewBox="0 0 21 16">
+              <path
+                d="M16.942 1.556a16.3 16.3 0 0 0-4.126-1.3 12.04 12.04 0 0 0-.529 1.1 15.175 15.175 0 0 0-4.573 0 11.585 11.585 0 0 0-.535-1.1 16.274 16.274 0 0 0-4.129 1.3A17.392 17.392 0 0 0 .182 13.218a15.785 15.785 0 0 0 4.963 2.521c.41-.564.773-1.16 1.084-1.785a10.63 10.63 0 0 1-1.706-.83c.143-.106.283-.217.418-.33a11.664 11.664 0 0 0 10.118 0c.137.113.277.224.418.33-.544.328-1.116.606-1.71.832a12.52 12.52 0 0 0 1.084 1.785 16.46 16.46 0 0 0 5.064-2.595 17.286 17.286 0 0 0-2.973-11.59ZM6.678 10.813a1.941 1.941 0 0 1-1.8-2.045 1.93 1.93 0 0 1 1.8-2.047 1.919 1.919 0 0 1 1.8 2.047 1.93 1.93 0 0 1-1.8 2.045Zm6.644 0a1.94 1.94 0 0 1-1.8-2.045 1.93 1.93 0 0 1 1.8-2.047 1.918 1.918 0 0 1 1.8 2.047 1.93 1.93 0 0 1-1.8 2.045Z" />
+            </svg>
+            <span class="sr-only">Discord community</span>
+          </a>
+          <a href="#" class="text-gray-400 hover:text-gray-900 dark:hover:text-white">
+            <svg class="w-4 h-4" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor"
+              viewBox="0 0 20 17">
+              <path fill-rule="evenodd"
+                d="M20 1.892a8.178 8.178 0 0 1-2.355.635 4.074 4.074 0 0 0 1.8-2.235 8.344 8.344 0 0 1-2.605.98A4.13 4.13 0 0 0 13.85 0a4.068 4.068 0 0 0-4.1 4.038 4 4 0 0 0 .105.919A11.705 11.705 0 0 1 1.4.734a4.006 4.006 0 0 0 1.268 5.392 4.165 4.165 0 0 1-1.859-.5v.05A4.057 4.057 0 0 0 4.1 9.635a4.19 4.19 0 0 1-1.856.07 4.108 4.108 0 0 0 3.831 2.807A8.36 8.36 0 0 1 0 14.184 11.732 11.732 0 0 0 6.291 16 11.502 11.502 0 0 0 17.964 4.5c0-.177 0-.35-.012-.523A8.143 8.143 0 0 0 20 1.892Z"
+                clip-rule="evenodd" />
+            </svg>
+            <span class="sr-only">Twitter page</span>
+          </a>
+          <a href="#" class="text-gray-400 hover:text-gray-900 dark:hover:text-white">
+            <svg class="w-4 h-4" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor"
+              viewBox="0 0 20 20">
+              <path fill-rule="evenodd"
+                d="M10 .333A9.911 9.911 0 0 0 6.866 19.65c.5.092.678-.215.678-.477 0-.237-.01-1.017-.014-1.845-2.757.6-3.338-1.169-3.338-1.169a2.627 2.627 0 0 0-1.1-1.451c-.9-.615.07-.6.07-.6a2.084 2.084 0 0 1 1.518 1.021 2.11 2.11 0 0 0 2.884.823c.044-.503.268-.973.63-1.325-2.2-.25-4.516-1.1-4.516-4.9A3.832 3.832 0 0 1 4.7 7.068a3.56 3.56 0 0 1 .095-2.623s.832-.266 2.726 1.016a9.409 9.409 0 0 1 4.962 0c1.89-1.282 2.717-1.016 2.717-1.016.366.83.402 1.768.1 2.623a3.827 3.827 0 0 1 1.02 2.659c0 3.807-2.319 4.644-4.525 4.889a2.366 2.366 0 0 1 .673 1.834c0 1.326-.012 2.394-.012 2.72 0 .263.18.572.681.475A9.911 9.911 0 0 0 10 .333Z"
+                clip-rule="evenodd" />
+            </svg>
+            <span class="sr-only">GitHub account</span>
+          </a>
+          <a href="#" class="text-gray-400 hover:text-gray-900 dark:hover:text-white">
+            <svg class="w-4 h-4" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor"
+              viewBox="0 0 20 20">
+              <path fill-rule="evenodd"
+                d="M10 0a10 10 0 1 0 10 10A10.009 10.009 0 0 0 10 0Zm6.613 4.614a8.523 8.523 0 0 1 1.93 5.32 20.094 20.094 0 0 0-5.949-.274c-.059-.149-.122-.292-.184-.441a23.879 23.879 0 0 0-.566-1.239 11.41 11.41 0 0 0 4.769-3.366ZM8 1.707a8.821 8.821 0 0 1 2-.238 8.5 8.5 0 0 1 5.664 2.152 9.608 9.608 0 0 1-4.476 3.087A45.758 45.758 0 0 0 8 1.707ZM1.642 8.262a8.57 8.57 0 0 1 4.73-5.981A53.998 53.998 0 0 1 9.54 7.222a32.078 32.078 0 0 1-7.9 1.04h.002Zm2.01 7.46a8.51 8.51 0 0 1-2.2-5.707v-.262a31.64 31.64 0 0 0 8.777-1.219c.243.477.477.964.692 1.449-.114.032-.227.067-.336.1a13.569 13.569 0 0 0-6.942 5.636l.009.003ZM10 18.556a8.508 8.508 0 0 1-5.243-1.8 11.717 11.717 0 0 1 6.7-5.332.509.509 0 0 1 .055-.02 35.65 35.65 0 0 1 1.819 6.476 8.476 8.476 0 0 1-3.331.676Zm4.772-1.462A37.232 37.232 0 0 0 13.113 11a12.513 12.513 0 0 1 5.321.364 8.56 8.56 0 0 1-3.66 5.73h-.002Z"
+                clip-rule="evenodd" />
+            </svg>
+            <span class="sr-only">Dribbble account</span>
+          </a>
+        </div>
+      </div>
+      <div class="text-xs text-gray-500 text-center m-auto">
+        Copyright © 2024 Air India Ltd.<br />
+
+        All rights reserved. Use of this website indicates your compliance
+        with our Privacy Policy, Conditions of Carriage, Terms and Conditions.
+      </div>
+    </div>
+  </footer>
+
+</body>
+
+</html>
